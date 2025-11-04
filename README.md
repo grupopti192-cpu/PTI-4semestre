@@ -8,4 +8,4 @@ Gabriel Henrique Alves Raposo,
 Guilherme Donelli Pires,
 Guilherme Henrique Carvalho Teixeira Silva,
 Mirella Anacleto das Dores,
-Yan Carlos dos Santos Rodrigues,
+Yan Carlos dos Santos Rodrigues.
