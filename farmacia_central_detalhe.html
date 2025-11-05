@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia Central - Produtos</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <a href="index.html" class="localizacao"><i class="fas fa-arrow-left"></i> Voltar</a>
+        <div class="busca">
+            <input type="text" placeholder="Buscar produtos nesta farmácia...">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="localizacao" style="display: flex; gap: 15px;">
+             <a href="login.html" class="localizacao"><i class="fas fa-user-circle"></i> Entrar</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="farmacia-info-header farmacia-card">
+            <img src="https://via.placeholder.com/80/28a745/FFFFFF?text=F" alt="Logo Farmácia Central" class="farmacia-logo-large">
+            <div class="info-details">
+                <h1>Farmácia Central</h1>
+                <p class="detalhes">
+                    <i class="fas fa-star" style="color: gold;"></i> 4.5 
+                    | Taxa de Entrega: **Grátis** | Tempo: 20-30 min
+                </p>
+                <p class="detalhes" style="color: #dc3545; font-weight: bold;">
+                    <i class="fas fa-clock"></i> Fechado no momento. Abre às 8:00.
+                </p>
+            </div>
+        </section>
+
+        <nav class="produto-categorias-nav">
+            <a href="#higiene" class="active">Higiene</a>
+            <a href="#vitaminas">Vitaminas</a>
+            <a href="#beleza">Beleza</a>
+            <a href="#remedios">Remédios (Indisponível Agora)</a>
+        </nav>
+
+        <section class="secao-produtos">
+            
+            <h2 id="higiene">Higiene Pessoal</h2>
+            <div class="produto-grid">
+                
+                <div class="produto-card">
+                    <img src="https://via.placeholder.com/100x80/f8f8f8?text=Escova" alt="Escova" class="produto-imagem">
+                    <p class="produto-nome">Escova Dental de Bambu</p>
+                    <p class="produto-preco">R$ 10,90</p>
+                    <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+                </div>
+
+                <div class="produto-card">
+                    <img src="https://via.placeholder.com/100x80/f8f8f8?text=Creme" alt="Creme" class="produto-imagem">
+                    <p class="produto-nome">Creme Hidratante Corporal</p>
+                    <p class="produto-preco">R$ 35,00</p>
+                    <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+                </div>
+                
+                <div class="produto-card">
+                    <img src="https://via.placeholder.com/100x80/f8f8f8?text=Fio" alt="Fio Dental" class="produto-imagem">
+                    <p class="produto-nome">Fio Dental 50 metros</p>
+                    <p class="produto-preco">R$ 5,99</p>
+                    <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <h2 id="vitaminas" style="margin-top: 40px;">Vitaminas e Suplementos</h2>
+            <div class="produto-grid">
+                
+                <div class="produto-card">
+                    <img src="https://via.placeholder.com/100x80/f8f8f8?text=Vit+C" alt="Vitamina C" class="produto-imagem">
+                    <p class="produto-nome">Vitamina C 1g Efervescente</p>
+                    <p class="produto-preco">R$ 22,90</p>
+                    <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+                </div>
+
+                <div class="produto-card">
+                    <img src="https://via.placeholder.com/100x80/f8f8f8?text=Omega" alt="Omega 3" class="produto-imagem">
+                    <p class="produto-nome">Ômega 3 Puro (60 cáps.)</p>
+                    <p class="produto-preco">R$ 55,90</p>
+                    <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+    
+    <div class="carrinho-flutuante">
+        <i class="fas fa-shopping-cart"></i> 
+        <span>0 Itens | R$ 0,00</span>
+    </div>
+
+</body>
+</html>
