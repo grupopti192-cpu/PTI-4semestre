@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Farmácia Delivery</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        .categorias {
+            display: flex;
+            overflow-x: auto; 
+            padding: 10px 0;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .categoria-item {
+            flex-shrink: 0; 
+            background-color: #fff;
+            padding: 10px 15px;
+            border-radius: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            border: 1px solid #eee;
+            transition: border-color 0.2s;
+        }
+
+        .categoria-item:hover {
+            border-color: #007bff;
+        }
+
+        .farmacia-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        /* O card é um link (<a>) agora */
+        .farmacia-card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .farmacia-card {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .farmacia-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .farmacia-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+            border: 1px solid #eee;
+        }
+
+        .farmacia-info h2 {
+            font-size: 1.1em;
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+        
+        .busca input {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 300px;
+        }
+        .busca i.fa-search {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="localizacao">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Entregar em: **Minha Rua, 123** <i class="fas fa-angle-down"></i></span>
+        </div>
+        <div class="busca">
+            <input type="text" placeholder="Buscar farmácias ou produtos...">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="localizacao" style="display: flex; gap: 15px;">
+             <a href="login.html" class="localizacao">Entrar</a>
+             <a href="cadastro.html" class="localizacao">Cadastrar</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="categorias">
+            <div class="categoria-item">Medicamentos</div>
+            <div class="categoria-item">Higiene Pessoal</div>
+            <div class="categoria-item">Vitaminas</div>
+            <div class="categoria-item">Primeiros Socorros</div>
+            <div class="categoria-item">Infantil</div>
+            <div class="categoria-item">Dermocosméticos</div>
+        </section>
+
+        <h1>Farmácias Próximas</h1>
+
+        <section class="farmacia-list">
+            
+            <a href="farmacia_detalhe.html" class="farmacia-card-link">
+                <div class="farmacia-card">
+                    <img src="https://via.placeholder.com/50/007bff/FFFFFF?text=D" alt="Logo Drogaria Saúde Máxima" class="farmacia-logo">
+                    <div class="farmacia-info">
+                        <h2>Drogaria Saúde Máxima</h2>
+                        <p class="detalhes">
+                            <i class="fas fa-star" style="color: gold;"></i> 4.8 
+                            | Taxa: R$ 5,00
+                            | 15-25 min
+                        </p>
+                        <p class="detalhes">Aberto agora</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="farmacia_central_detalhe.html" class="farmacia-card-link">
+                <div class="farmacia-card">
+                    <img src="https://via.placeholder.com/50/28a745/FFFFFF?text=F" alt="Logo Farmácia Central" class="farmacia-logo">
+                    <div class="farmacia-info">
+                        <h2>Farmácia Central</h2>
+                        <p class="detalhes">
+                            <i class="fas fa-star" style="color: gold;"></i> 4.5 
+                            | Taxa: Grátis
+                            | 20-30 min
+                        </p>
+                        <p class="detalhes">Fechado</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="farmacia_popular_detalhe.html" class="farmacia-card-link">
+                <div class="farmacia-card">
+                    <img src="https://via.placeholder.com/50/ffc107/FFFFFF?text=P" alt="Logo Pharmácia Popular" class="farmacia-logo">
+                    <div class="farmacia-info">
+                        <h2>Pharmácia Popular</h2>
+                        <p class="detalhes">
+                            <i class="fas fa-star" style="color: gold;"></i> 4.2 
+                            | Taxa: R$ 3,50
+                            | 10-20 min
+                        </p>
+                        <p class="detalhes">Aberto agora</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="biofarma_detalhe.html" class="farmacia-card-link">
+                <div class="farmacia-card">
+                    <img src="https://via.placeholder.com/50/dc3545/FFFFFF?text=B" alt="Logo BioFarma" class="farmacia-logo">
+                    <div class="farmacia-info">
+                        <h2>BioFarma Delivery</h2>
+                        <p class="detalhes">
+                            <i class="fas fa-star" style="color: gold;"></i> 4.9 
+                            | Taxa: R$ 7,00
+                            | 25-40 min
+                        </p>
+                        <p class="detalhes">Aberto agora</p>
+                    </div>
+                </div>
+            </a>
+            
+        </section>
+
+    </main>
+    
+    <div class="carrinho-flutuante">
+        <i class="fas fa-shopping-cart"></i> 
+        <span>2 Itens | R$ 45,90</span>
+    </div>
+
+</body>
+</html>
