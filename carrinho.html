@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Estilos específicos para a página do Carrinho Vazio */
+        .carrinho-vazio {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .carrinho-vazio i {
+            font-size: 80px;
+            color: #ccc; /* Cinza claro para indicar inatividade */
+            margin-bottom: 20px;
+        }
+
+        .carrinho-vazio h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .carrinho-vazio p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn-voltar {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            display: inline-block;
+        }
+
+        .btn-voltar:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <a href="index.html" class="logo-link">
+            <img src="logo.png" alt="Logo Minha Farmácia Delivery" class="logo">
+        </a>
+        
+        <div class="busca" style="flex-grow: 1; text-align: center;">
+             <h2>Seu Carrinho</h2>
+        </div>
+        
+        <div class="localizacao" style="display: flex; gap: 15px; width: 100px;">
+             <a href="login.html" class="localizacao"><i class="fas fa-user-circle"></i> Entrar</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="carrinho-vazio">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>Seu carrinho está vazio!</h2>
+            <p>Parece que você ainda não adicionou nenhum produto. Volte à página inicial para começar suas compras.</p>
+            <a href="index.html" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i> Voltar à Home
+            </a>
+        </div>
+
+    </main>
+    
+    </body>
+</html>

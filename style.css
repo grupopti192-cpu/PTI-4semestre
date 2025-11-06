@@ -1,0 +1,375 @@
+/* Estilos Gerais (Reset Básico) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Fundo cinza claro */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* --- ESTILOS ORIGINAIS (Cabeçalho e Card Base) --- */
+.cabecalho {
+    background-color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.localizacao {
+    color: #007bff; /* Cor primária */
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.busca {
+    position: relative;
+    text-align: right; 
+}
+
+.farmacia-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+.detalhes {
+    font-size: 14px;
+    color: #666;
+}
+
+/* --- ESTILOS DE CADASTRO/FORMULÁRIO (Reutilizados para Login) --- */
+/* Estilos de Abas (Apenas usados na página de cadastro) */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-button {
+    flex-grow: 1; 
+    background: none;
+    border: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 3px solid transparent; 
+    transition: all 0.2s ease;
+}
+
+.tab-button.active {
+    color: #007bff; 
+    border-bottom: 3px solid #007bff; 
+    font-weight: bold;
+}
+
+.cadastro-form {
+    padding: 25px;
+}
+
+.form-title {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+.cadastro-btn {
+    width: 100%;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+.cadastro-btn:hover {
+    background-color: #0056b3; 
+}
+
+/* --- ESTILOS DE LOGIN (login.html) --- */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+}
+.login-form {
+    padding: 30px;
+}
+
+/* --- ESTILOS DE ADMIN PANEL (admin.html) --- */
+.admin-layout {
+    display: flex;
+    /* Para ocupar a altura restante da tela */
+    min-height: calc(100vh - 60px); 
+    max-width: 100%; 
+    padding: 0;
+    margin: 0 auto;
+}
+        
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0; 
+}
+
+.sidebar h3 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 25px;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+}
+
+.sidebar-menu a:hover, .sidebar-menu a.active-link {
+    background-color: #f0f8ff; 
+    color: #007bff;
+    border-left: 4px solid #007bff;
+}
+
+.sidebar-menu i {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #f5f5f5;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.widget {
+    padding: 20px;
+    text-align: center;
+}
+
+.widget h4 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.metric {
+    font-size: 3em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+/* --- ESTILOS DE PÁGINA INTERNA DA FARMÁCIA (farmacia_detalhe.html) --- */
+
+.farmacia-info-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.farmacia-logo-large {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+    border: 1px solid #eee;
+}
+
+.info-details h1 {
+    font-size: 1.8em;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.produto-categorias-nav {
+    display: flex;
+    overflow-x: auto;
+    background-color: #fff;
+    padding: 10px 15px;
+    margin-top: -25px; /* Puxa para cima, abaixo do header fixo */
+    position: sticky;
+    top: 60px; /* Abaixo do cabeçalho */
+    z-index: 990;
+    border-bottom: 1px solid #eee;
+}
+
+.produto-categorias-nav a {
+    flex-shrink: 0;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.produto-categorias-nav a:hover, .produto-categorias-nav a.active {
+    color: #007bff;
+    border-bottom: 3px solid #007bff;
+}
+
+.secao-produtos h2 {
+    font-size: 1.6em;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+}
+
+/* --- GRID E CARD DE PRODUTO --- */
+
+.produto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); /* Responsivo, cards de no mínimo 130px */
+    gap: 15px;
+}
+
+.produto-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.produto-imagem {
+    width: 100%;
+    height: 80px;
+    object-fit: contain; 
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.produto-nome {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 5px 0;
+    height: 30px; /* Reserva espaço para 2 linhas de texto */
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.produto-preco {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.adicionar-btn {
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end; /* Alinha o botão à direita no card */
+}
+
+/* --- Carrinho Flutuante (Estilo App) --- */
+.carrinho-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+}
+.carrinho-flutuante i {
+    margin-right: 8px;
+}
+/* Novo estilo para ocultar elementos */
+.farmacia-oculta {
+    display: none !important; /* Remove completamente o elemento do fluxo do documento */
+}
+/* --- ESTILOS DA LOGO (index.html) --- */
+
+/* Estilo para a imagem da logo */
+.logo {
+    height: 35px; /* Define a altura da logo */
+    width: auto; /* Mantém a proporção */
+}
+
+/* Garante que o link da logo não tenha o estilo de texto azul */
+.logo-link {
+    text-decoration: none; 
+    color: inherit;
+    margin-right: 15px; 
+}
+
+/* Garante que a logo, a busca e o botão de entrar fiquem alinhados verticalmente no cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente */
+    /* Se o seu padding for diferente de 15px 20px, ajuste aqui */
+    padding: 10px 20px; 
+}
