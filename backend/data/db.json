@@ -1,0 +1,51 @@
+{
+  "produtos": [
+    {
+    "id": 1, "nome": "Dorflex",
+    "preco": 19.90,
+    "imagem": "./media/dorflex.png"
+    }
+  ],
+  "farmacias": [
+    {
+      "id": 1,
+      "nome": "Drogaria Saúde Máxima",
+      "logo": "https://via.placeholder.com/50/007bff/FFFFFF?text=D",
+      "avaliacao": 4.8,
+      "taxa": "R$ 5,00",
+      "tempoEntrega": "15-25 min",
+      "status": "Aberto agora",
+      "produtos": [1]
+    },
+    {
+      "id": 2,
+      "nome": "Farmácia Central",
+      "logo": "https://via.placeholder.com/50/28a745/FFFFFF?text=F",
+      "avaliacao": 4.5,
+      "taxa": "Grátis",
+      "tempoEntrega": "20-30 min",
+      "status": "Fechado",
+      "produtos": [1]
+    },
+    {
+      "id": 3,
+      "nome": "Pharmácia Popular",
+      "logo": "https://via.placeholder.com/50/ffc107/FFFFFF?text=P",
+      "avaliacao": 4.2,
+      "taxa": "R$ 3,50",
+      "tempoEntrega": "10-20 min",
+      "status": "Aberto agora",
+      "produtos": [1]
+    },
+    {
+      "id": 4,
+      "nome": "BioFarma Delivery",
+      "logo": "https://via.placeholder.com/50/dc3545/FFFFFF?text=B",
+      "avaliacao": 4.9,
+      "taxa": "R$ 7,00",
+      "tempoEntrega": "25-40 min",
+      "status": "Aberto agora",
+      "produtos": [1]
+    }
+  ]
+}

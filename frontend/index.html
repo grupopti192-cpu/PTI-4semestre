@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Farmácia Delivery</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="localizacao">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Entregar em: **Minha Rua, 123** <i class="fas fa-angle-down"></i></span>
+        </div>
+        <div class="busca">
+            <input type="text" placeholder="Buscar farmácias ou produtos...">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="localizacao" style="display: flex; gap: 15px;">
+             <a href="login.html" class="localizacao">Entrar</a>
+             <a href="cadastro.html" class="localizacao">Cadastrar</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="categorias">
+            <div class="categoria-item">Medicamentos</div>
+            <div class="categoria-item">Higiene Pessoal</div>
+            <div class="categoria-item">Vitaminas</div>
+            <div class="categoria-item">Primeiros Socorros</div>
+            <div class="categoria-item">Infantil</div>
+            <div class="categoria-item">Dermocosméticos</div>
+        </section>
+
+        <h1>Farmácias Próximas</h1>
+
+    <section class="farmacia-list" id="lista-farmacias"></section>
+    <script>
+    async function carregarFarmacias() {
+        const response = await fetch('/farmacias');
+        const farmacias = await response.json();
+
+        const container = document.getElementById('lista-farmacias');
+        container.innerHTML = '';
+
+        farmacias.forEach(f => {
+        const link = document.createElement('a');
+        link.href = `farmacia.html?id=${f.id}`;
+        link.classList.add('farmacia-card-link');
+
+        link.innerHTML = `
+            <div class="farmacia-card">
+            <img src="${f.logo}" alt="Logo ${f.nome}" class="farmacia-logo">
+            <div class="farmacia-info">
+                <h2>${f.nome}</h2>
+                <p class="detalhes">
+                <i class="fas fa-star" style="color: gold;"></i> ${f.avaliacao}
+                | Taxa: ${f.taxa}
+                | ${f.tempoEntrega}
+                </p>
+                <p class="detalhes">${f.status}</p>
+            </div>
+            </div>
+        `;
+
+        container.appendChild(link);
+        });
+    }
+    carregarFarmacias();
+    </script>
+
+    </main>
+    
+    <div class="carrinho-flutuante">
+        <i class="fas fa-shopping-cart"></i> 
+        <span>2 Itens | R$ 45,90</span>
+    </div>
+    
+</body>
+</html>
