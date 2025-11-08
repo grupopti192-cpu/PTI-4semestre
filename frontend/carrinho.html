@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Carrinho</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a href="index.html" class="localizacao"><i class="fas fa-arrow-left"></i> Voltar</a>
+    <h1>Meu Carrinho</h1>
+  </header>
+
+  <main class="container" id="carrinho">
+    <div id="conteudoCarrinho"></div>
+  </main>
+
+  <script src="/carrinho.js"></script>
+  <script>
+    function renderCarrinho() {
+      const conteudo = document.getElementById('conteudoCarrinho');
+      const carrinho = getCarrinho();
+
+      if (!carrinho || carrinho.length === 0) {
+        conteudo.innerHTML = `
+          <div class="carrinho-vazio">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>Seu carrinho está vazio!</h2>
+            <p>Parece que você ainda não adicionou nenhum produto. Volte à página inicial para começar suas compras.</p>
+            <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar à Home</a>
+          </div>`;
+        return;
+      }
+
+      let html = '<div class="itens-carrinho">';
+      carrinho.forEach(item => {
+        html += `
+          <div class="item-carrinho">
+            <img src="${item.imagem}" alt="${item.nome}" />
+            <div class="item-info">
+              <p class="item-nome">${item.nome}</p>
+              <p class="item-preco">R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')} (${item.quantidade}x)</p>
+              <div class="item-controles">
+                <button onclick="setQuantidade(${item.id}, ${item.quantidade - 1})">-</button>
+                <input type="number" value="${item.quantidade}" min="1" onchange="setQuantidade(${item.id}, this.value)">
+                <button onclick="setQuantidade(${item.id}, ${item.quantidade + 1})">+</button>
+                <button class="remover-btn" onclick="removerDoCarrinho(${item.id})"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      html += '</div>';
+
+      const total = carrinho.reduce((s, it) => s + it.preco * it.quantidade, 0);
+      html += `<div class="resumo"><strong>Total: R$ ${total.toFixed(2).replace('.', ',')}</strong></div>`;
+
+      conteudo.innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCarrinho();
+      window.addEventListener('storage', renderCarrinho);
+    });
+
+    const originalSetQuantidade = window.setQuantidade;
+    window.setQuantidade = function(id, qtd) {
+      originalSetQuantidade(id, qtd);
+      renderCarrinho();
+    };
+
+    const originalRemover = window.removerDoCarrinho;
+    window.removerDoCarrinho = function(id) {
+      originalRemover(id);
+      renderCarrinho();
+    };
+  </script>
+</body>
+</html>

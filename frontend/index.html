@@ -42,6 +42,11 @@
 
         <h1>Farmácias Próximas</h1>
 
+    <div class="carrinho-flutuante" id="carrinhoFlutuante" onclick="window.location.href='carrinho.html'">
+    <i class="fas fa-shopping-cart"></i>
+    <span>0 produtos | R$ 0,00</span>
+    </div>
+
     <section class="farmacia-list" id="lista-farmacias"></section>
     <script>
     async function carregarFarmacias() {
@@ -76,13 +81,6 @@
     }
     carregarFarmacias();
     </script>
-
     </main>
-    
-    <div class="carrinho-flutuante">
-        <i class="fas fa-shopping-cart"></i> 
-        <span>2 Itens | R$ 45,90</span>
-    </div>
-    
 </body>
 </html>

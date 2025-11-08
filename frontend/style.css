@@ -1,9 +1,8 @@
-/* Estilos Gerais (Reset Básico) */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5; /* Fundo cinza claro */
+    background-color: #f5f5f5;
 }
 
 .container {
@@ -12,7 +11,6 @@ body {
     padding: 0 15px;
 }
 
-/* --- ESTILOS ORIGINAIS (Cabeçalho e Card Base) --- */
 .cabecalho {
     background-color: #fff;
     padding: 15px 20px;
@@ -26,7 +24,7 @@ body {
 }
 
 .localizacao {
-    color: #007bff; /* Cor primária */
+    color: #007bff;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none; 
@@ -130,8 +128,6 @@ body {
     color: #666;
 }
 
-/* --- ESTILOS DE CADASTRO/FORMULÁRIO (Reutilizados para Login) --- */
-/* Estilos de Abas (Apenas usados na página de cadastro) */
 .tabs {
     display: flex;
     justify-content: space-around;
@@ -210,7 +206,6 @@ body {
     background-color: #0056b3; 
 }
 
-/* --- ESTILOS DE LOGIN (login.html) --- */
 .login-container {
     max-width: 400px;
     margin: 50px auto;
@@ -219,10 +214,8 @@ body {
     padding: 30px;
 }
 
-/* --- ESTILOS DE ADMIN PANEL (admin.html) --- */
 .admin-layout {
     display: flex;
-    /* Para ocupar a altura restante da tela */
     min-height: calc(100vh - 60px); 
     max-width: 100%; 
     padding: 0;
@@ -292,7 +285,6 @@ body {
     color: #333;
     margin: 10px 0;
 }
-/* --- ESTILOS DE PÁGINA INTERNA DA FARMÁCIA (farmacia_detalhe.html) --- */
 
 .farmacia-info-header {
     display: flex;
@@ -321,9 +313,9 @@ body {
     overflow-x: auto;
     background-color: #fff;
     padding: 10px 15px;
-    margin-top: -25px; /* Puxa para cima, abaixo do header fixo */
+    margin-top: -25px;
     position: sticky;
-    top: 60px; /* Abaixo do cabeçalho */
+    top: 60px;
     z-index: 990;
     border-bottom: 1px solid #eee;
 }
@@ -352,11 +344,9 @@ body {
     padding-left: 10px;
 }
 
-/* --- GRID E CARD DE PRODUTO --- */
-
 .produto-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); /* Responsivo, cards de no mínimo 130px */
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
     gap: 15px;
 }
 
@@ -384,7 +374,7 @@ body {
     font-size: 13px;
     font-weight: 500;
     margin: 5px 0;
-    height: 30px; /* Reserva espaço para 2 linhas de texto */
+    height: 30px;
     overflow: hidden;
     text-overflow: ellipsis; 
 }
@@ -397,7 +387,8 @@ body {
 }
 
 .adicionar-btn {
-    background-color: #007bff; 
+    background-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
     color: white;
     border: none;
     border-radius: 50%;
@@ -408,10 +399,24 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    align-self: flex-end; /* Alinha o botão à direita no card */
+    align-self: flex-end;
 }
 
-/* --- Carrinho Flutuante (Estilo App) --- */
+.adicionar-btn:hover {
+    background-color: #0056b3; 
+}
+
+.adicionar-btn:active {
+    animation: bounceClick 0.15s ease;
+}
+
+@keyframes bounceClick {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(0.93); }
+    100% { transform: scale(1); }
+}
+
+
 .carrinho-flutuante {
     position: fixed;
     bottom: 20px;
@@ -427,4 +432,158 @@ body {
 }
 .carrinho-flutuante i {
     margin-right: 8px;
+}
+
+.carrinho-vazio {
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 50px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.carrinho-vazio i {
+    font-size: 80px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.carrinho-vazio h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.carrinho-vazio p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn-voltar {
+    background: linear-gradient(135deg, #007bff, #0056d2);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.btn-voltar i {
+    padding-top: 16px;
+    font-size: 17px;
+    transform: translateY(1px);
+    display: flex;
+    align-items: center;
+}
+
+.btn-voltar:hover {
+    background: linear-gradient(135deg, #0056d2, #0041a8);
+    box-shadow: 0 6px 12px rgba(0, 86, 210, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-voltar:hover i {
+    transform: translate(-3px, 1px);
+}
+
+/* styles que criei provisoriamente para o carrinho -- Yan */
+#carrinho .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.itens-carrinho {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px 15px;
+}
+
+.item-carrinho img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-nome {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.item-preco {
+    color: #28a745;
+    font-weight: 500;
+}
+
+.item-controles {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.item-controles button {
+    background: #eee;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.item-controles button:hover {
+    background: #ddd;
+}
+
+.item-controles input {
+    width: 45px;
+    text-align: center;
+}
+
+.remover-btn {
+    color: #dc3545;
+}
+
+.resumo {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-align: right;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.carrinho-vazio {
+    text-align: center;
+}
+
+.carrinho-vazio i.fa-shopping-cart {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #007bff;
 }
