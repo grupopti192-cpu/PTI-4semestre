@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioFarma Delivery - Produtos</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+       <a href="index.html" class="localizacao"><i class="fas fa-arrow-left"></i> Voltar</a>
+        
+        <div class="busca">
+            <input type="text" placeholder="Buscar produtos nesta farmácia...">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="localizacao" style="display: flex; gap: 15px;">
+             <a href="login.html" class="localizacao"><i class="fas fa-user-circle"></i> Entrar</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="farmacia-info-header farmacia-card">
+            <img src="https://via.placeholder.com/80/dc3545/FFFFFF?text=B" alt="Logo BioFarma Delivery" class="farmacia-logo-large">
+            <div class="info-details">
+                <h1>BioFarma Delivery</h1>
+                <p>A sua farmácia online com entrega ultra rápida.</p>
+                <p class="horario">Horário: Aberto agora - Fecha às 23:00</p>
+                <div class="rating">
+                    <i class="fas fa-star" style="color: gold;"></i> 4.9 (125 avaliações)
+                </div>
+            </div>
+            <div class="localizacao-detalhe">
+                <i class="fas fa-motorcycle"></i> Entrega: R$ 7,00 (25-40 min)
+            </div>
+        </section>
+        <nav class="produto-categorias-nav">
+            <a href="#medicamentos" class="active">Medicamentos</a>
+            <a href="#higiene">Higiene</a>
+            <a href="#vitaminas">Vitaminas</a>
+        </nav>
+
+        <h2 id="medicamentos">Medicamentos</h2>
+        <div class="produto-grid">
+            
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Paracetamol" alt="Paracetamol" class="produto-imagem">
+                <p class="produto-nome">Paracetamol 750mg (20 comp.)</p>
+                <p class="produto-preco">R$ 14,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Dipirona" alt="Dipirona" class="produto-imagem">
+                <p class="produto-nome">Dipirona Sódica 500mg (10 comp.)</p>
+                <p class="produto-preco">R$ 9,50</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Creme" alt="Pomada Anti-inflamatória" class="produto-imagem">
+                <p class="produto-nome">Pomada Anti-inflamatória</p>
+                <p class="produto-preco">R$ 18,00</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Curativo" alt="Kit de Curativos" class="produto-imagem">
+                <p class="produto-nome">Kit de Curativos (10un)</p>
+                <p class="produto-preco">R$ 8,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+
+        <h2 id="higiene" style="margin-top: 40px;">Higiene Pessoal</h2>
+        <div class="produto-grid">
+            
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Escova" alt="Escova de Dentes" class="produto-imagem">
+                <p class="produto-nome">Escova de Dentes Macia</p>
+                <p class="produto-preco">R$ 6,99</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Pasta" alt="Pasta de Dente" class="produto-imagem">
+                <p class="produto-nome">Pasta de Dente 90g</p>
+                <p class="produto-preco">R$ 4,50</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Enxaguante" alt="Enxaguante Bucal" class="produto-imagem">
+                <p class="produto-nome">Enxaguante Bucal 500ml</p>
+                <p class="produto-preco">R$ 15,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Fio" alt="Fio Dental" class="produto-imagem">
+                <p class="produto-nome">Fio Dental 50 metros</p>
+                <p class="produto-preco">R$ 5,99</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+
+        <h2 id="vitaminas" style="margin-top: 40px;">Vitaminas e Suplementos</h2>
+        <div class="produto-grid">
+            
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Vit+C" alt="Vitamina C" class="produto-imagem">
+                <p class="produto-nome">Vitamina C 1g Efervescente</p>
+                <p class="produto-preco">R$ 22,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Omega" alt="Omega 3" class="produto-imagem">
+                <p class="produto-nome">Ômega 3 Puro (60 cáps.)</p>
+                <p class="produto-preco">R$ 55,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="https://via.placeholder.com/100x80/f8f8f8?text=Multivit" alt="Multivitamínico" class="produto-imagem">
+                <p class="produto-nome">Multivitamínico Completo</p>
+                <p class="produto-preco">R$ 39,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+            
+        </div>
+
+    </main>
+    
+    <a href="carrinho.html" class="carrinho-flutuante">
+        <i class="fas fa-shopping-cart"></i>
+        <span>0 itens - R$ 0,00</span>
+    </a>
+
+</body>
+</html>

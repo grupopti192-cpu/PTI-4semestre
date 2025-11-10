@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado! - Minha Farmácia Delivery</title>
+    
+    <meta http-equiv="refresh" content="5;url=index.html">
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Estilos Específicos para a tela de Sucesso */
+        .sucesso-card {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 3px solid #28a745; /* Borda de destaque verde */
+        }
+
+        .sucesso-card i.fas {
+            font-size: 80px;
+            color: #28aa75; /* Verde de sucesso */
+            margin-bottom: 20px;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .sucesso-card h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .sucesso-card p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .pedido-info {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: inline-block;
+            text-align: left;
+        }
+        
+        .pedido-info p {
+            margin: 5px 0;
+            color: #333;
+            font-size: 1em;
+        }
+        
+        /* Botões de Ação */
+        .btn-acao {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-principal {
+            background-color: #007bff; /* Cor primária */
+            color: white;
+        }
+
+        .btn-principal:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secundario {
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+        
+        .btn-secundario:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Animação para o ícone de sucesso */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .aviso-redirecionamento {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <a href="index.html" class="localizacao"><i class="fas fa-home"></i> Início</a>
+        <div class="busca" style="flex-grow: 1; text-align: center;">
+             <h2>Confirmação</h2>
+        </div>
+        
+        <div class="localizacao" style="display: flex; gap: 15px; width: 100px;">
+             <a href="#" class="localizacao"><i class="fas fa-receipt"></i> Meus Pedidos</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="sucesso-card">
+            
+            <i class="fas fa-check-circle"></i>
+            
+            <h1>Pedido Confirmado com Sucesso!</h1>
+            
+            <p>
+                Obrigado por sua compra! Seu pedido foi processado e está sendo preparado pela farmácia parceira.
+            </p>
+            
+            <div class="pedido-info">
+                <p><strong>Número do Pedido:</strong> #MFD-202500147</p>
+                <p><strong>Total Pago:</strong> R$ 107,42</p>
+                <p><strong>Previsão de Entrega:</strong> 30 a 45 minutos</p>
+            </div>
+            
+            <div>
+                <a href="index.html" class="btn-acao btn-principal">
+                    <i class="fas fa-shopping-basket"></i> Continuar Comprando
+                </a>
+                <a href="#" class="btn-acao btn-secundario">
+                    <i class="fas fa-receipt"></i> Ver Detalhes do Pedido
+                </a>
+            </div>
+            
+            <p class="aviso-redirecionamento">
+                Você será redirecionado para a página inicial em 5 segundos.
+            </p>
+
+        </div>
+
+    </main>
+    
+    <style>
+        .checkout-flutuante { display: none; }
+    </style>
+
+</body>
+</html>
