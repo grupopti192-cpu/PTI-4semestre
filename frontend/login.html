@@ -1,88 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Minha Farmácia Delivery</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Minha Farmácia Delivery</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
 
-    <header class="cabecalho">
-        <a href="index.html" class="localizacao"><i class="fas fa-arrow-left"></i> Voltar</a>
-        <div class="busca">
-             <h2>Acesso</h2>
-        </div>
-    </header>
+  <header class="cabecalho">
+    <a href="index.html" class="voltar-nav">
+      <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+    <h2>Acesso</h2>
+    <div></div>
+  </header>
 
-    <main class="login-container">
-        
-        <form class="cadastro-form farmacia-card login-form" onsubmit="return validarLogin(event)">
-            <h3 class="form-title">Entrar</h3>
-            
-            <div class="form-group">
-                <label for="email-l">E-mail</label>
-                <input type="email" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="senha-l">Senha</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            
-            <button type="submit" class="cadastro-btn">
-                <i class="fas fa-sign-in-alt"></i> Entrar
-            </button>
-            
-            <p id="error-message" style="color: red; text-align: center; margin-top: 10px; display: none;">
-                Credenciais inválidas.
-            </p>
+  <main class="login-container">
+    <form class="login-form" id="loginForm">
+      <h3 class="form-title">Entrar</h3>
 
-            <p style="margin-top: 15px; font-size: 14px; text-align: center;">
-                <a href="cadastro.html" class="localizacao">Ainda não tem conta? Cadastre-se.</a>
-            </p>
-        </form>
+      <div class="form-group">
+        <label for="username">E-mail</label>
+        <input type="email" id="username" name="username" required placeholder="exemplo@email.com">
+      </div>
 
-    </main>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" required placeholder="Sua senha">
+      </div>
 
-    <script>
-        function validarLogin(event) {
-            // Previne o envio padrão do formulário
-            event.preventDefault();
+      <button type="submit" class="cadastro-btn">
+        <i class="fas fa-sign-in-alt"></i> Entrar
+      </button>
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('error-message');
+      <p id="error-message">E-mail ou senha inválidos.</p>
 
-            // --- Credenciais de Admin (Fictícias) ---
-            const ADMIN_USER = "admin@farmacia.com";
-            const ADMIN_PASS = "admin123"; 
+      <p style="margin-top: 15px; text-align:center;">
+        Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>.
+      </p>
+    </form>
+  </main>
 
-            // --- Credenciais de Cliente (Fictícias) ---
-            const CLIENTE_USER = "cliente@teste.com";
-            const CLIENTE_PASS = "123456"; 
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-            if (username === ADMIN_USER && password === ADMIN_PASS) {
-                // Login de ADMIN bem-sucedido
-                errorMessage.style.display = 'none';
-                alert("Login de Administrador bem-sucedido!");
-                // Redireciona para o Painel do Administrador
-                window.location.href = "admin.html";
-                return false;
-            } else if (username === CLIENTE_USER && password === CLIENTE_PASS) {
-                // Login de CLIENTE bem-sucedido
-                errorMessage.style.display = 'none';
-                alert("Login de Cliente bem-sucedido!");
-                // Redireciona para a página principal (ou perfil do cliente)
-                window.location.href = "index.html"; 
-                return false;
-            } else {
-                // Falha no Login
-                errorMessage.style.display = 'block';
-                return false;
-            }
+      const email = document.getElementById("username").value.trim();
+      const senha = document.getElementById("password").value.trim();
+      const error = document.getElementById("error-message");
+
+      error.style.display = "none";
+
+      if (!email || !senha) {
+        error.textContent = "Preencha e-mail e senha.";
+        error.style.display = "block";
+        return;
+      }
+
+      try {
+        const res = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, senha })
+        });
+
+        if (!res.ok) {
+          let msg = "E-mail ou senha inválidos.";
+          try {
+            const errJson = await res.json();
+            if (errJson && errJson.erro) msg = errJson.erro;
+            if (errJson && errJson.message) msg = errJson.message;
+          } catch (err) {}
+
+          error.textContent = msg;
+          error.style.display = "block";
+          console.warn("Login falhou:", res.status, msg);
+          return;
         }
-    </script>
 
+        const data = await res.json();
+        if (!data || !data.tipo || !data.usuario) {
+          error.textContent = "Resposta inesperada do servidor.";
+          error.style.display = "block";
+          console.error("Resposta inesperada do servidor", data);
+          return;
+        }
+
+        sessionStorage.setItem("usuarioLogado", JSON.stringify(data.usuario));
+        sessionStorage.setItem("tipoUsuario", data.tipo);
+
+        if (data.tipo === "cliente") {
+          window.location.href = "cliente.html";
+        } else {
+          window.location.href = "fornecedor.html";
+        }
+      } catch (err) {
+        console.error("Erro no login", err);
+        error.textContent = "Erro no login.";
+        error.style.display = "block";
+      }
+    });
+  </script>
+  <script src="auth.js"></script>
 </body>
 </html>

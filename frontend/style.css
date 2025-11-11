@@ -1,8 +1,17 @@
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.cabecalho a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .container {
@@ -12,27 +21,59 @@ body {
 }
 
 .cabecalho {
-    background-color: #fff;
-    padding: 15px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    justify-content: space-between;
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 15px 20px;
+    height: 60px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.localizacao {
-    color: #007bff;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none; 
+.cabecalho .loginCadastro,
+.cabecalho .voltar-nav,
+#logout {
+    display: flex;
+    margin-left: 6px;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.cabecalho .loginCadastro:hover,
+.cabecalho .voltar-nav:hover {
+    transform: translateX(-2px);
+}
+
+.cabecalho .perfil-info {
+    display: none;
+}
+
+#logout:hover {
+    transform: translateX(1px);
 }
 
 .busca {
     position: relative;
     text-align: right; 
+}
+
+.busca input {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 300px;
+}
+.busca i.fa-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
 }
 
 .categorias {
@@ -66,7 +107,6 @@ body {
     gap: 25px;
 }
 
-/* O card é um link (<a>) agora */
 .farmacia-card-link {
     text-decoration: none;
     color: inherit;
@@ -88,6 +128,14 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.farmacia-card-large {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
 .farmacia-logo {
     width: 50px;
     height: 50px;
@@ -101,20 +149,6 @@ body {
     font-size: 1.1em;
     margin: 0 0 5px 0;
     color: #333;
-}
-
-.busca input {
-    padding: 8px 15px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    width: 300px;
-}
-.busca i.fa-search {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #aaa;
 }
 
 .farmacia-card {
@@ -158,6 +192,154 @@ body {
     padding: 25px;
 }
 
+.cadastro-btn {
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cadastro-btn:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.02);
+}
+
+.cadastro-btn i {
+    margin-right: 6px;
+}
+
+.cadastro-btn {
+    width: 100%;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+.cadastro-btn:hover {
+    background-color: #0056b3; 
+}
+
+.tipo-conta {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tipo-conta h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.opcoes-conta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.opcao-caixa {
+    background-color: #007bff15;
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    width: 150px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.opcao-caixa:hover {
+    background-color: #007bff25;
+    transform: translateY(-2px);
+}
+
+.opcao-caixa input {
+    display: none;
+}
+
+.opcao-caixa label {
+    font-weight: 500;
+    color: #007bff;
+    cursor: pointer;
+    user-select: none;
+}
+
+.opcao-caixa i {
+    color: #007bff;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.opcao-caixa.selected {
+    background-color: #007bff;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.opcao-caixa.selected i,
+.opcao-caixa.selected label {
+    color: white;
+}
+
+body.cadastro-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    margin: 0;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.cadastro-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #0d6efd;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.cadastro-card h2 {
+    margin-bottom: 20px;
+    color: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+a.voltar {
+    display: inline-block;
+    margin-top: 15px;
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a.voltar:hover {
+    opacity: 0.8;
+}
+
 .form-title {
     color: #333;
     margin-top: 0;
@@ -188,35 +370,9 @@ body {
     box-sizing: border-box; 
 }
 
-.cadastro-btn {
-    width: 100%;
-    background-color: #007bff; 
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.2s;
-}
-
-.cadastro-btn:hover {
-    background-color: #0056b3; 
-}
-
-.login-container {
-    max-width: 400px;
-    margin: 50px auto;
-}
-.login-form {
-    padding: 30px;
-}
-
 .admin-layout {
     display: flex;
-    min-height: calc(100vh - 60px); 
+    min-height: calc(80vh - 60px); 
     max-width: 100%; 
     padding: 0;
     margin: 0 auto;
@@ -317,7 +473,7 @@ body {
     position: sticky;
     top: 60px;
     z-index: 990;
-    border-bottom: 1px solid #eee;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .produto-categorias-nav a {
@@ -400,10 +556,12 @@ body {
     justify-content: center;
     align-items: center;
     align-self: flex-end;
+    transition: all 0.3s ease;
 }
 
 .adicionar-btn:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3;
+    transform: scale(104%);
 }
 
 .adicionar-btn:active {
@@ -415,7 +573,6 @@ body {
     50%  { transform: scale(0.93); }
     100% { transform: scale(1); }
 }
-
 
 .carrinho-flutuante {
     position: fixed;
@@ -429,9 +586,16 @@ body {
     font-weight: bold;
     cursor: pointer;
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 .carrinho-flutuante i {
     margin-right: 8px;
+}
+
+.carrinho-flutuante:hover {
+    background: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 86, 210, 0.4);
+    transform: translateX(-2px);
 }
 
 .carrinho-vazio {
@@ -460,7 +624,7 @@ body {
 }
 
 .btn-voltar {
-    background: linear-gradient(135deg, #007bff, #0056d2);
+    background: #007bff;
     color: #fff;
     padding: 12px 24px;
     border-radius: 30px;
@@ -485,7 +649,7 @@ body {
 }
 
 .btn-voltar:hover {
-    background: linear-gradient(135deg, #0056d2, #0041a8);
+    background: #0056b3;
     box-shadow: 0 6px 12px rgba(0, 86, 210, 0.4);
     transform: translateY(-2px);
 }
@@ -494,7 +658,104 @@ body {
     transform: translate(-3px, 1px);
 }
 
-/* styles que criei provisoriamente para o carrinho -- Yan */
+.perfil-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.perfil-header i {
+    font-size: 50px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.perfil-info h2 {
+    margin: 5px 0 0 0;
+    color: #333;
+}
+
+.perfil-info p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Estilo de abas reutilizado do cadastro, mas ajustado */
+.perfil-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.perfil-tabs button {
+    flex-grow: 1;
+    padding: 15px 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-bottom-color 0.2s;
+}
+
+.perfil-tabs button.active {
+    color: #007bff;
+    border-bottom-color: #007bff;
+}
+
+.tab-content-perfil {
+    display: none;
+    padding: 20px 0;
+}
+
+.tab-content-perfil.active-content {
+    display: block;
+}
+
+.pedido-card {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #28a745; /* Cor verde para status de entregue */
+}
+
+.pedido-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.pedido-card p {
+    margin: 3px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.pedido-card .status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.status-entregue {
+    background-color: #e2f0e8;
+    color: #28a745;
+}
+
+.status-pendente {
+        background-color: #fff3cd;
+        color: #ffc107;
+}
+
 #carrinho .container {
     max-width: 700px;
     margin: 0 auto;
@@ -586,4 +847,88 @@ body {
     font-size: 50px;
     margin-bottom: 15px;
     color: #007bff;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(80vh - 80px);
+}
+
+.login-form {
+    background: #fff;
+    margin: 20px;
+    padding: 35px 30px;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #0d6efd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.login-form h3 {
+    margin-bottom: 25px;
+    color: #0d6efd;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: all 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+    outline: none;
+}
+
+#error-message {
+    color: #dc3545;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+    font-size: 0.9em;
+}
+
+.login-form p {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.login-form a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }

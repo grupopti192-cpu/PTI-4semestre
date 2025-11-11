@@ -39,6 +39,3 @@ async function carregarProdutos() {
     lista.appendChild(card);
   });
 }
-
-carregarFarmacia();
-carregarProdutos();

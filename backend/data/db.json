@@ -1,51 +1,122 @@
 {
   "produtos": [
     {
-    "id": 1, "nome": "Dorflex",
-    "preco": 19.90,
-    "imagem": "./media/dorflex.png"
+      "id": 1,
+      "nome": "Dorflex",
+      "preco": 19.9,
+      "imagem": "./media/dorflex.png"
     }
   ],
   "farmacias": [
     {
       "id": 1,
       "nome": "Drogaria Saúde Máxima",
-      "logo": "https://via.placeholder.com/50/007bff/FFFFFF?text=D",
+      "email": "1@a.com",
+      "senha": "a",
+      "cnpj": "1",
+      "telefone": "a",
+      "endereco": "a",
+      "fotoPerfil": "https://via.placeholder.com/50/007bff/FFFFFF?text=D",
       "avaliacao": 4.8,
       "taxa": "R$ 5,00",
       "tempoEntrega": "15-25 min",
       "status": "Aberto agora",
-      "produtos": [1]
+      "produtos": [
+        1
+      ]
     },
     {
       "id": 2,
       "nome": "Farmácia Central",
-      "logo": "https://via.placeholder.com/50/28a745/FFFFFF?text=F",
+      "email": "2@a.com",
+      "senha": "a",
+      "cnpj": "2",
+      "telefone": "a",
+      "endereco": "a",
+      "fotoPerfil": "https://via.placeholder.com/50/28a745/FFFFFF?text=F",
       "avaliacao": 4.5,
       "taxa": "Grátis",
       "tempoEntrega": "20-30 min",
       "status": "Fechado",
-      "produtos": [1]
+      "produtos": [
+        1
+      ]
     },
     {
       "id": 3,
-      "nome": "Pharmácia Popular",
-      "logo": "https://via.placeholder.com/50/ffc107/FFFFFF?text=P",
+      "nome": "Farmácia Popular",
+      "email": "3@a.com",
+      "senha": "a",
+      "cnpj": "3",
+      "telefone": "a",
+      "endereco": "a",
+      "fotoPerfil": "https://via.placeholder.com/50/ffc107/FFFFFF?text=P",
       "avaliacao": 4.2,
       "taxa": "R$ 3,50",
       "tempoEntrega": "10-20 min",
       "status": "Aberto agora",
-      "produtos": [1]
+      "produtos": [
+        1
+      ]
     },
     {
       "id": 4,
+      "email": "4@a.com",
+      "senha": "a",
       "nome": "BioFarma Delivery",
-      "logo": "https://via.placeholder.com/50/dc3545/FFFFFF?text=B",
+      "cnpj": "4",
+      "telefone": "a",
+      "endereco": "a",
+      "fotoPerfil": "https://via.placeholder.com/50/dc3545/FFFFFF?text=B",
       "avaliacao": 4.9,
       "taxa": "R$ 7,00",
       "tempoEntrega": "25-40 min",
       "status": "Aberto agora",
-      "produtos": [1]
+      "produtos": [
+        1
+      ]
+    }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "email": "x@x.com",
+      "senha": "a",
+      "nome": "teste",
+      "cpf": "1",
+      "telefone": "",
+      "endereco": "a",
+      "fotoPerfil": "./media/placeholder_user.png"
+    },
+    {
+      "id": 2,
+      "email": "x@z.com",
+      "senha": "a",
+      "nome": "b",
+      "cpf": "2",
+      "telefone": "2",
+      "endereco": "b",
+      "fotoPerfil": "./media/placeholder_user.png"
+    },
+    {
+      "id": 3,
+      "email": "a@a.com",
+      "senha": "a",
+      "nome": "3",
+      "cpf": "3",
+      "telefone": "3",
+      "endereco": "3",
+      "fotoPerfil": "./media/placeholder_user.png"
+    },
+    {
+      "id": 4,
+      "email": "123@a.com",
+      "senha": "123",
+      "nome": "jose",
+      "cpf": "1",
+      "telefone": "",
+      "endereco": "teste",
+      "fotoPerfil": "./media/placeholder_user.png"
     }
   ]
 }

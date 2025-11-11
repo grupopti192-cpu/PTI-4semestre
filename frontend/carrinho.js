@@ -13,7 +13,6 @@ function salvarCarrinho(carrinho) {
   atualizarCarrinhoFlutuante();
 }
 
-// adiciona 1 unidade do produto ao carrinho
 function adicionarAoCarrinho(produto) {
   if (!produto || !produto.id) return;
   const carrinho = getCarrinho();

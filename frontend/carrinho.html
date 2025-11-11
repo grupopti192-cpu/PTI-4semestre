@@ -9,8 +9,11 @@
 </head>
 <body>
   <header class="cabecalho">
-    <a href="index.html" class="localizacao"><i class="fas fa-arrow-left"></i> Voltar</a>
-    <h1>Meu Carrinho</h1>
+      <a href="index.html" class="voltar-nav">
+          <i class="fas fa-arrow-left"></i> Voltar
+      </a>
+      <h2>Meu Carrinho</h2>
+      <div class="loginCadastro"></div>
   </header>
 
   <main class="container" id="carrinho">
@@ -19,7 +22,7 @@
 
   <script src="/carrinho.js"></script>
   <script>
-    function renderCarrinho() {
+    function carrinhoVazio() {
       const conteudo = document.getElementById('conteudoCarrinho');
       const carrinho = getCarrinho();
 
@@ -61,20 +64,20 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      renderCarrinho();
-      window.addEventListener('storage', renderCarrinho);
+      carrinhoVazio();
+      window.addEventListener('storage', carrinhoVazio);
     });
 
     const originalSetQuantidade = window.setQuantidade;
     window.setQuantidade = function(id, qtd) {
       originalSetQuantidade(id, qtd);
-      renderCarrinho();
+      carrinhoVazio();
     };
 
     const originalRemover = window.removerDoCarrinho;
     window.removerDoCarrinho = function(id) {
       originalRemover(id);
-      renderCarrinho();
+      carrinhoVazio();
     };
   </script>
 </body>
