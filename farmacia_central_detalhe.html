@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia Central - Produtos</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+       <a href="index.html" class="localizacao"><i class="fas fa-arrow-left"></i> Voltar</a>
+        
+        <div class="busca">
+            <input type="text" placeholder="Buscar produtos nesta farmácia...">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="localizacao" style="display: flex; gap: 15px;">
+             <a href="login.html" class="localizacao"><i class="fas fa-user-circle"></i> Entrar</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="farmacia-info-header farmacia-card">
+            <img src="Imagens/icone_1_2.png" alt="Logo Farmácia Central" class="farmacia-logo-large">
+            <div class="info-details">
+                <h1>Farmácia Central</h1>
+                <p class="detalhes">
+                    <i class="fas fa-star" style="color: gold;"></i> 4.7 (700+) | Taxa: R$ 4,50 | 20-35 min
+                </p>
+                <p class="detalhes status-aberto">Aberto agora</p>
+                <p class="detalhes"><i class="fas fa-clock"></i> Seg - Dom: 07h às 23h</p>
+            </div>
+            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+        </section>
+        
+        <h2 id="medicamentos" style="margin-top: 20px;">Medicamentos Essenciais</h2>
+        <div class="produto-grid">
+            
+            <div class="produto-card">
+                <img src="Imagens/Dipirona.png" alt="Dipirona" class="produto-imagem">
+                <p class="produto-nome">Dipirona 500mg (20 comp.)</p>
+                <p class="produto-preco">R$ 13,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="Imagens/Paracetamol.png" alt="Paracetamol" class="produto-imagem">
+                <p class="produto-nome">Paracetamol 750mg (10 comp.)</p>
+                <p class="produto-preco">R$ 9,50</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="Imagens/Buscopan.png" alt="Buscopan" class="produto-imagem">
+                <p class="produto-nome">Buscopan Composto</p>
+                <p class="produto-preco">R$ 18,99</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="Imagens/Curativos.png" alt="Curativo" class="produto-imagem">
+                <p class="produto-nome">Caixa de Curativos (20 und.)</p>
+                <p class="produto-preco">R$ 8,50</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+        
+        <h2 id="vitaminas" style="margin-top: 40px;">Vitaminas e Suplementos</h2>
+        <div class="produto-grid">
+            
+            <div class="produto-card">
+                <img src="Imagens/VitaminaD.png" alt="Vitamina D" class="produto-imagem">
+                <p class="produto-nome">Vitamina D 2000UI (30 cáps.)</p>
+                <p class="produto-preco">R$ 35,00</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="Imagens/BCAA.png" alt="BCAA" class="produto-imagem">
+                <p class="produto-nome">BCAA em Pó (150g)</p>
+                <p class="produto-preco">R$ 65,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+            <div class="produto-card">
+                <img src="Imagens/Colágeno.png" alt="Colágeno" class="produto-imagem">
+                <p class="produto-nome">Colágeno Hidrolisado</p>
+                <p class="produto-preco">R$ 49,90</p>
+                <button class="adicionar-btn"><i class="fas fa-plus"></i></button>
+            </div>
+
+    </main>
+
+    <a href="carrinho.html" class="carrinho-flutuante">
+        <i class="fas fa-shopping-cart"></i> 4 itens (R$ 77,70)
+    </a>
+
+</body>
+</html>
