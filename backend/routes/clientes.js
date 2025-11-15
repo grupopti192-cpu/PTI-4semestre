@@ -28,22 +28,20 @@ router.put('/:id', (req, res) => {
   }
 });
 
-router.post('/:id/enderecos', (req, res) => {
+router.get('/:id', (req, res) => {
   try {
     const db = readDB();
-    const id = parseInt(req.params.id,10);
+    const id = parseInt(req.params.id, 10);
     const cliente = db.clientes.find(c => c.id === id);
-    if (!cliente) return res.status(404).json({ sucesso:false, mensagem:'Cliente não encontrado' });
-
-    if (!cliente.enderecos) cliente.enderecos = [];
-    const novo = { id: Date.now(), ...req.body };
-    cliente.enderecos.push(novo);
-    writeDB(db);
-    res.json({ sucesso:true, endereco: novo });
-  } catch(err){
-    console.error('Erro POST /clientes/:id/enderecos', err);
-    res.status(500).json({ sucesso:false, mensagem:'Erro interno' });
+    if (!cliente) {
+      return res.status(404).json({ sucesso: false, mensagem: 'Cliente não encontrado' });
+    }
+    return res.json(cliente);
+  } catch (err) {
+    console.error('Erro GET /clientes/:id', err);
+    res.status(500).json({ sucesso: false, mensagem: 'Erro interno' });
   }
 });
+
 
 module.exports = router;

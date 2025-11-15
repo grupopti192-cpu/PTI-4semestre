@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (usuario && tipo) {
       header.innerHTML = `
-        <span style="cursor:default;">Olá, ${usuario.nome?.split(" ")[0] || "Usuário"}</span>
+        <a href="${tipo}.html">Olá, ${usuario.nome?.split(" ")[0] || "Usuário"}</a>
         <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
       `;
       document.getElementById("logout").addEventListener("click", logout);
@@ -29,11 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    if (tipo === "cliente" && pagina.includes("fornecedor")) {
+      alert("Clientes não podem acessar esta página.");
+      window.location.href = "index.html";
+      return;
+    }
+
+    if (pagina.includes("checkout") && tipo !== "cliente") {
+      window.location.href = "login.html";
+      return;
+    }
+
     if (!usuario && (pagina.includes("cliente") || pagina.includes("fornecedor"))) {
       alert("Acesso restrito! Faça login para continuar.");
       window.location.href = "login.html";
     }
   }
+
 
   function logout() {
     sessionStorage.clear();

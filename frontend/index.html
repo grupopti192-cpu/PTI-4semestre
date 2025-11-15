@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Farmácia Delivery</title>
-    
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <style>
-
-    </style>
+    <link rel="icon" type="image/png" href="media\icon.png">
 </head>
 <body>
 
     <header class="cabecalho">
-        <div class="logo">
+        <a class="logo" href="index.html">
+            <img src="/media/icon.png">
             <p>Minha Farmácia Delivery</p>
-        </div>
-
+        </a>
         <div class="busca">
             <input type="text" placeholder="Buscar farmácias ou produtos...">
             <i class="fas fa-search"></i>
         </div>
-
         <div class="loginCadastro"></div>
     </header>
 
@@ -60,7 +55,7 @@
 
                 link.innerHTML = `
                     <div class="farmacia-card">
-                    <img src="${f.logo}" alt="Logo ${f.nome}" class="farmacia-logo">
+                    <img src="${f.fotoPerfil}" style="border-style: none;" alt="Logo ${f.nome}" class="farmacia-logo">
                     <div class="farmacia-info">
                         <h2>${f.nome}</h2>
                         <p class="detalhes">
@@ -68,7 +63,9 @@
                         | Taxa: ${f.taxa}
                         | ${f.tempoEntrega}
                         </p>
-                        <p class="detalhes">${f.status}</p>
+                        <p class="detalhes" style="color: ${f.status.includes('Fechado') ? '#dc3545' : '#28a745'}; font-weight: bold;">
+                            <i class="fas fa-clock"></i> ${f.status}
+                        </p>
                     </div>
                     </div>
                 `;

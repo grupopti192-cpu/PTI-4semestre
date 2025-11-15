@@ -36,7 +36,7 @@ exports.cadastrarCliente = (req, res) => {
     cpf,
     telefone,
     endereco,
-    fotoPerfil: "./media/placeholder_user.png"
+    fotoPerfil: "./media/cliente.png"
   };
 
   db.clientes.push(novoCliente);
@@ -84,11 +84,11 @@ exports.cadastrarFarmacia = (req, res) => {
     cnpj,
     telefone,
     endereco,
-    fotoPerfil: "./media/placeholder_farmacia.png",
-    avaliacao: "",
-    taxa: "",
-    tempoEntrega: "",
-    status: "",
+    fotoPerfil: "./media/fornecedor.png.png",
+    avaliacao: 0.0,
+    taxa: "R$ 0,00",
+    tempoEntrega: "Não definido",
+    status: "Fechado",
     produtos: []
   };
 

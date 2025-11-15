@@ -3,43 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farmácia - Produtos</title>
-
+  <title></title>
   <link rel="stylesheet" href="style.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" type="image/png" href="media\icon.png">
 </head>
 <body>
 
   <header class="cabecalho">
-      <a href="index.html" class="voltar-nav">
-          <i class="fas fa-arrow-left"></i> Voltar
-      </a>
+    <a href="index.html" class="voltar-nav">
+      <i class="fas fa-arrow-left"></i> Voltar
+    </a>
 
-      <div class="busca">
-          <input type="text" placeholder="Buscar produtos nesta farmácia...">
-          <i class="fas fa-search"></i>
-      </div>
+    <div class="busca">
+      <input type="text" style="margin-left: 173.48px;" placeholder="Buscar produtos nesta farmácia..." id="campoBusca">
+      <i class="fas fa-search"></i>
+    </div>
 
-      <div class="loginCadastro"></div>
+    <div class="loginCadastro"></div>
   </header>
 
-
   <main class="container">
-    <section id="farmacia-header" class="farmacia-info-header farmacia-card-large">
-    </section>
+    <section id="farmacia-header" class="farmacia-info-header farmacia-card-large"></section>
 
-    <nav class="produto-categorias-nav">
-      <a href="#higiene">Medicamentos</a>
-      <a href="#vitaminas">Higiene</a>
-      <a href="#beleza">Vitaminas</a>
-      <a href="#remedios">Beleza</a>
-    </nav>
+    <nav class="produto-categorias-nav" id="navCategorias"></nav>
 
-    <section class="secao-produtos">
-      <h2 id="produtos-titulo">Medicamentos</h2> <!-- ajustar p isso ser criado dinamicamente -->
-      <div class="produto-grid" id="lista-produtos">
-      </div>
-    </section>
+    <div id="conteudoProdutos"></div>
   </main>
 
   <div class="carrinho-flutuante" id="carrinhoFlutuante" onclick="window.location.href='carrinho.html'">
@@ -48,6 +37,12 @@
   </div>
 
   <script>
+    const CATEGORIAS = {
+      1: "Medicamentos",
+      2: "Suplementos",
+      3: "Infantil"
+    };
+
     function getQueryParam(name) {
       return new URLSearchParams(window.location.search).get(name);
     }
@@ -58,6 +53,8 @@
 
       const resFarmacia = await fetch(`/farmacias/${id}`);
       const farmacia = await resFarmacia.json();
+
+      document.title = `Farmácia ${farmacia.nome} - Produtos`;
 
       const header = document.getElementById('farmacia-header');
       header.innerHTML = `
@@ -77,28 +74,52 @@
       const resProdutos = await fetch(`/produtos?farmaciaId=${id}`);
       const produtos = await resProdutos.json();
 
-      const lista = document.getElementById('lista-produtos');
-      lista.innerHTML = '';
+      if (!produtos || produtos.length === 0) {
+        document.getElementById('conteudoProdutos').innerHTML = "<p>Nenhum produto disponível.</p>";
+        return;
+      }
 
+      const grupos = {};
       produtos.forEach(p => {
-        lista.innerHTML += `
-          <div class="produto-card">
-            <img src="${p.imagem}" alt="${p.nome}" class="produto-imagem" onerror="this.src='/media/placeholder.png'">
-            <p class="produto-nome">${p.nome}</p>
-            <p class="produto-preco">R$ ${Number(p.preco).toFixed(2).replace('.', ',')}</p>
-            <button class="adicionar-btn" data-id="${p.id}"><i class="fas fa-plus"></i></button>
-          </div>
+        if (!grupos[p.categoria]) grupos[p.categoria] = [];
+        grupos[p.categoria].push(p);
+      });
+
+      const nav = document.getElementById('navCategorias');
+      const conteudo = document.getElementById('conteudoProdutos');
+      nav.innerHTML = '';
+      conteudo.innerHTML = '';
+
+      Object.keys(grupos).forEach(catId => {
+        const nomeCat = CATEGORIAS[catId] || `Categoria ${catId}`;
+        nav.innerHTML += `<a href="#cat-${catId}">${nomeCat}</a>`;
+
+        let htmlProdutos = '';
+        grupos[catId].forEach(p => {
+          htmlProdutos += `
+            <div class="produto-card">
+              <img src="${p.imagem}" alt="${p.nome}" class="produto-imagem" onerror="this.src='/media/placeholder.png'">
+              <p class="produto-nome">${p.nome}</p>
+              <p class="produto-preco">R$ ${Number(p.preco).toFixed(2).replace('.', ',')}</p>
+              <button class="adicionar-btn" data-id="${p.id}"><i class="fas fa-plus"></i></button>
+            </div>
+          `;
+        });
+
+        conteudo.innerHTML += `
+          <section class="secao-produtos" id="cat-${catId}">
+            <h2>${nomeCat}</h2>
+            <div class="produto-grid">${htmlProdutos}</div>
+          </section>
         `;
       });
-      const botoes = lista.querySelectorAll('.adicionar-btn');
-      botoes.forEach(btn => {
+
+      document.querySelectorAll('.adicionar-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const id = Number(btn.getAttribute('data-id'));
           const produto = produtos.find(x => x.id === id);
-          if (!produto) {
-            console.error('Produto não encontrado para id', id);
-            return;
-          }
+          if (!produto) return console.error('Produto não encontrado para id', id);
+
           window.adicionarAoCarrinho({
             id: produto.id,
             nome: produto.nome,
@@ -108,9 +129,11 @@
         });
       });
     }
+
     carregarFarmacia();
   </script>
-  <script src="/carrinho.js"></script>
+
+  <script src="carrinho.js"></script>
   <script src="auth.js"></script>
 </body>
 </html>
