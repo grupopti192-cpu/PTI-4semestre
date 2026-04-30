@@ -511,3 +511,14 @@ body {
     cursor: pointer;
     text-decoration: none; 
 }
+
+#map {
+    height: 500px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.localizacao i {
+    margin-right: 5px;
+}
